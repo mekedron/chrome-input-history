@@ -47,9 +47,9 @@ function processInput(element, value) {
 
     const label = getElementLabel(element);
 
-    const inputKey = element.dataset.inputKey || generateUniqueId(element);
+    const inputKey = element.dataset.chomeExtensionInputKey || getInputKey(element);
 
-    element.dataset.inputKey = inputKey;
+    element.dataset.chomeExtensionInputKey = inputKey;
 
     const record = {
         title: title,
@@ -110,6 +110,16 @@ function processInput(element, value) {
     });
 }
 
+function getInputKey(element) {
+    const label = getElementLabel(element);
+
+    if (label) {
+        return label;
+    }
+
+    return generateUniqueId(element);
+}
+
 function getElementLabel(element) {
     // Try to get label text, placeholder, name, id
     let label = '';
@@ -150,12 +160,6 @@ function getElementLabel(element) {
 }
 
 function generateUniqueId(element) {
-    const label = getElementLabel(element);
-
-    if (label) {
-        return label;
-    }
-
     return 'input-' + Math.random().toString(36).substr(2, 9);
 }
 
