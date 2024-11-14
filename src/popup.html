@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en_US">
+<head>
+    <meta charset="utf-8">
+    <title>Input History Saver</title>
+    <style>
+        /* Basic styles for the popup */
+        body {
+            font-family: Arial, sans-serif;
+            width: 300px;
+            margin: 0;
+            padding: 0;
+        }
+        .page {
+            display: none;
+            padding: 10px;
+        }
+        .page.active {
+            display: block;
+        }
+        .domain-list, .input-list, .record-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .domain-list li, .input-list li, .record-list li {
+            margin-bottom: 5px;
+        }
+        .back-button {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+        .clear-button {
+            margin-top: 10px;
+            cursor: pointer;
+            color: red;
+        }
+        h3 {
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="domainListPage" class="page">
+    <h2>Domains</h2>
+    <ul id="domainList" class="domain-list"></ul>
+    <button id="clearAllButton" class="clear-button">Clear All History</button>
+</div>
+
+<div id="domainViewPage" class="page">
+    <span id="backToDomainList" class="back-button">&lt; Back</span>
+    <h2 id="domainTitle"></h2>
+    <ul id="inputList" class="input-list"></ul>
+    <button id="clearDomainButton" class="clear-button">Clear Domain History</button>
+</div>
+
+<div id="inputViewPage" class="page">
+    <span id="backToDomainView" class="back-button">&lt; Back</span>
+    <h2 id="inputTitle"></h2>
+    <ul id="recordList" class="record-list"></ul>
+    <button id="clearInputButton" class="clear-button">Clear Input History</button>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

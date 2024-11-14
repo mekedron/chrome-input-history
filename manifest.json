@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Input History Tracker",
+  "version": "1.0",
+  "description": "Saves text inputs history per domain.",
+  "permissions": ["storage", "tabs", "scripting", "activeTab"],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_icon": "images/icon.png"
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/contentScript.js"],
+      "run_at": "document_end",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ]
+}
