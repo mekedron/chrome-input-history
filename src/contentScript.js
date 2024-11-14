@@ -178,6 +178,7 @@ function inputEventHandler(event) {
 // Attach input event listeners
 function attachListeners() {
     document.addEventListener('input', inputEventHandler, true);
+    document.addEventListener('change', inputEventHandler, true);
 }
 
 attachListeners();
